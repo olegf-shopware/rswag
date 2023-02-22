@@ -41,12 +41,15 @@ module Rswag
       end
 
       def csp
+        rswag_allow_connect_src_env = ENV['RSWAG_ALLOW_CONNECT_SRC'] || ''
+        connect_src = rswag_allow_connect_src_env.split(',').join(' ')
         <<~POLICY.gsub "\n", ' '
           default-src 'self';
           img-src 'self' data:;
           font-src 'self' https://fonts.gstatic.com;
           style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
           script-src 'self' 'unsafe-inline';
+          connect-src 'self' #{connect_src};
         POLICY
       end
     end
