@@ -19,7 +19,7 @@ module Rswag
           # default location
           File.expand_path('../index.erb', __FILE__)
         ]
-        @assets_root = File.expand_path('../../../../node_modules/swagger-ui-dist', __FILE__)
+        @assets_root = File.expand_path('../../../../assets/swagger-ui-dist', __FILE__)
         @config_object = {}
         @oauth_config_object = {}
         @basic_auth_enabled = false
