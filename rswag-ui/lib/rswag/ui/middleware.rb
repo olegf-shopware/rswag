@@ -41,8 +41,8 @@ module Rswag
       end
 
       def csp
-        rswag_allow_connect_src_env = ENV['RSWAG_ALLOW_CONNECT_SRC'] || ''
-        connect_src = rswag_allow_connect_src_env.split(',').join(' ')
+        rswag_csp_connect_src_env = ENV['RSWAG_CSP_CONNECT_SRC'] || ''
+        connect_src = rswag_csp_connect_src_env.split(',').join(' ')
         <<~POLICY.gsub "\n", ' '
           default-src 'self';
           img-src 'self' data:;
